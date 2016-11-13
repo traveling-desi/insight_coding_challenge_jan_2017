@@ -79,7 +79,7 @@ def checkFOF(id1, id2):
                                 #print "TEMP = ", temp
 			idList[id1][4] |= temp
                         end = time()
-                        print "Completed in ", end - start
+                        #print "Completed in ", end - start
 			if not id2 in idList[id1][4]:
 				return False
 	except:
@@ -155,16 +155,16 @@ def createSOF(idList):
 
 #idList = [''] * (getmaxUsers() + 1)
 #filename = "paymo_input/batch_payment.csv"
-idList = [''] * 77360
-#idList = [''] * 100
+#idList = [''] * 77360
+idList = [''] * 100
 filename = "paymo_input/temp.csv"
-#createFList(filename, idList)
+createFList(filename, idList)
 #pickle.dump(idList, open('idList_saved.txt', 'wb'))
-idList = pickle.load(open('paymo_input/idList_saved.txt', 'rb'))
+#idList = pickle.load(open('paymo_input/idList_saved.txt', 'rb'))
 createSOF(idList)
 #createFOF(idList)
-#with open("paymo_input/temp.csv", "rU") as csvfile:
-with open("paymo_input/stream_payment.csv", "rU") as csvfile:
+with open("paymo_input/temp.csv", "rU") as csvfile:
+#with open("paymo_input/stream_payment.csv", "rU") as csvfile:
         datareader = csv.reader(csvfile)
         for row in datareader:
 		try:
@@ -174,11 +174,11 @@ with open("paymo_input/stream_payment.csv", "rU") as csvfile:
         	id1 = int(row[1])
         	id2 = int(row[2])
 		start = time()
-		#print "for", id1, "-->", id2, checkFList(id1, id2)
+		print "for", id1, "-->", id2, checkFList(id1, id2)
 		end = time()
 		#print "checked in ", end - start
 		start = time()
-		#print "for", id1, "-->", id2, checkSOF(id1, id2)
+		print "for", id1, "-->", id2, checkSOF(id1, id2)
 		end = time()
 		#print "checked in ", end - start
 		start = time()
