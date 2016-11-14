@@ -4,6 +4,7 @@ from dateutil import parser
 from datetime import datetime
 from time import time
 import pickle
+import sys
 
 
 class paymo:
@@ -165,13 +166,18 @@ class paymo:
 
 
 		
-fileName1 = "paymo_input/batch_payment.txt"
-fileName2 = "paymo_input/stream_payment.txt"
+#fileName1 = "paymo_input/batch_payment.txt"
+#fileName2 = "paymo_input/stream_payment.txt"
 #fileName1 = "paymo_input/temp.csv"
 #fileName2 = "paymo_input/temp.csv"
-outFile1 = "paymo_output/output1.txt"
-outFile2 = "paymo_output/output2.txt"
-outFile3 = "paymo_output/output3.txt"
+#outFile1 = "paymo_output/output1.txt"
+#outFile2 = "paymo_output/output2.txt"
+#outFile3 = "paymo_output/output3.txt"
+fileName1 = sys.argv[1]
+fileName2 = sys.argv[2]
+outFile1 = sys.argv[3]
+outFile2 = sys.argv[4]
+outFile3 = sys.argv[5]
 out1 = open(outFile1, 'w')
 out2 = open(outFile2, 'w')
 out3 = open(outFile3, 'w')
