@@ -10,8 +10,8 @@ GRADER_ROOT=$(dirname ${BASH_SOURCE})
 
 PROJECT_PATH=${GRADER_ROOT}/..
 
-echo ${GRADER_ROOT}
-echo ${PROJECT_PATH}
+#echo ${GRADER_ROOT}
+#echo ${PROJECT_PATH}
 
 function print_dir_contents {
   local proj_path=$1
@@ -56,8 +56,8 @@ function setup_testing_input_output {
   rm -r ${TEST_OUTPUT_PATH}/paymo_output/*
   cp -r ${GRADER_ROOT}/tests/${test_folder}/paymo_input/batch_payment.txt ${TEST_OUTPUT_PATH}/paymo_input/batch_payment.txt
   cp -r ${GRADER_ROOT}/tests/${test_folder}/paymo_input/stream_payment.txt ${TEST_OUTPUT_PATH}/paymo_input/stream_payment.txt
-  cp -r ${GRADER_ROOT}/tests/${test_folder}/paymo_input/temp.csv ${TEST_OUTPUT_PATH}/paymo_input/
-  cp -r ${GRADER_ROOT}/tests/${test_folder}/paymo_input/idList_saved.txt ${TEST_OUTPUT_PATH}/paymo_input/
+  #cp -r ${GRADER_ROOT}/tests/${test_folder}/paymo_input/temp.csv ${TEST_OUTPUT_PATH}/paymo_input/
+  #cp -r ${GRADER_ROOT}/tests/${test_folder}/paymo_input/idList_saved.txt ${TEST_OUTPUT_PATH}/paymo_input/
 }
 
 function compare_outputs {

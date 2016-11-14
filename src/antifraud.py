@@ -16,7 +16,7 @@ class paymo:
 		else:
 			self.idList = [''] * (self.getmaxUsers(fileName) + 1)
 			self.createFList(fileName, self.idList)
-			#pickle.dump(self.idList, open('paymo_input/idList_saved.txt', 'wb'))
+			pickle.dump(self.idList, open('paymo_input/idList_saved.txt', 'wb'))
 		self.createSOF(self.idList)
 
 
@@ -143,10 +143,10 @@ class paymo:
 
 
 		
-#fileName1 = "paymo_input/batch_payment.csv"
-#fileName2 = "paymo_input/stream_payment.csv"
-fileName1 = "paymo_input/temp.csv"
-fileName2 = "paymo_input/temp.csv"
+fileName1 = "paymo_input/batch_payment.txt"
+fileName2 = "paymo_input/stream_payment.txt"
+#fileName1 = "paymo_input/temp.csv"
+#fileName2 = "paymo_input/temp.csv"
 outFile1 = "paymo_output/output1.txt"
 outFile2 = "paymo_output/output2.txt"
 outFile3 = "paymo_output/output3.txt"
@@ -171,19 +171,18 @@ with open(fileName2, "rU") as csvfile:
         else:
         	out1.write('trusted\n')
         	unverified = False
-        if not paymoObj.checkSOF(id1, id2):
+        if unverified and not paymoObj.checkSOF(id1, id2):
         	out2.write('unverified\n')
         else:
         	out2.write('trusted\n')
         	unverified = False
-        #if unverified and not paymoObj.checkFOF(id1, id2):
-        if not paymoObj.checkFOF(id1, id2):
+        if unverified and not paymoObj.checkFOF(id1, id2):
         	out3.write('unverified\n')
         else:
         	out3.write('trusted\n')
 
-for k in range(len(paymoObj.idList)):
-	print k, paymoObj.idList[k]
+#for k in range(len(paymoObj.idList)):
+#	print k, paymoObj.idList[k]
 
 out1.close()
 out2.close()
