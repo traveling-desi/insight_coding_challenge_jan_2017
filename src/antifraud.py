@@ -77,8 +77,8 @@ class paymo:
 					idList[id1] = {1: {id2}, 2: set(), 4: set(), 'nid': newId}
 				try:
 					idList[id2][1].add(id1)
-					idList[id2]['nid'] |= idList[id1]['nid']
-					idList[id1]['nid'] = idList[id2]['nid']
+					#idList[id2]['nid'] |= idList[id1]['nid']
+					#idList[id1]['nid'] = idList[id2]['nid']
 				except:
 					idList[id2] = {1: {id1}, 2: set(), 4: set(), 'nid': idList[id1]['nid']}
 		end = time()
